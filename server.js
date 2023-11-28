@@ -9,15 +9,6 @@ const signin = require('./controllers/signin')
 const profile = require('./controllers/profile')
 const image = require('./controllers/image')
 
-const { Pool } = require('pg')
-
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
-})
-
   
 const db = knex({
   client: 'pg',
@@ -40,19 +31,6 @@ app.post('/register', (req, res) => {register.handleRegister(req, res, db, bcryp
 app.get('/profile/:id', (req, res) => {profile.handleGetProfile(req, res, db)})
 app.put('/image', (req, res) => { image.handleImageSubmit(req, res, db) })
 app.post('/imageurl', (req, res) => { image.handleApiCall(req, res) })
-
-app.get('/db', async (req, res) => {
-    try {
-      const client = await pool.connect();
-      const result = await client.query('SELECT * FROM users');
-      const results = { 'results': (result) ? result.rows : null};
-      res.render('pages/db', results );
-      client.release();
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
-    }
-  })
 
 
 app.listen(process.env.PORT || 3000, () => {

@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { ClarifaiStub, grpc } = require("clarifai-nodejs-grpc");
 const express = require("express");
 const cors = require("cors");
@@ -10,6 +11,7 @@ app.use(cors());
 const handleApiCall = (req, res) => {
   // Your PAT (Personal Access Token) can be found in the portal under Authentification
   const PAT = process.env.API_CLARIFAI;
+
   // Specify the correct user_id/app_id pairings
   // Since you're making inferences outside your app's scope
   const USER_ID = 'dmcdaniel9';

@@ -33,14 +33,12 @@ const handleApiCall = (req, res) => {
       if (err) {
         throw new Error(err);
       }
-      //* Working on multiple face detection here
-      const newOutput = response.outputs[0].data.regions.map((region) => {
+
+      const output = response.outputs[0].data.regions.map((region) => {
         return region.region_info.bounding_box;
       });
-      console.log(newOutput);
 
-      //const output = response.outputs[0].data.regions[0].region_info.bounding_box;
-      res.json(newOutput);
+      res.json(output);
     },
   );
 };

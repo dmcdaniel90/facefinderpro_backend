@@ -11,7 +11,7 @@ const profile = require("./controllers/profile");
 const image = require("./controllers/image");
 
 const corsOptions = {
-  origin: "https://smartbrain-devinmcdaniel-399f2624a5c3.herokuapp.com/",
+  origin: "*",
   optionsSuccessStatus: 200,
 };
 

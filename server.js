@@ -9,6 +9,11 @@ const signin = require("./controllers/signin");
 const profile = require("./controllers/profile");
 const image = require("./controllers/image");
 
+const corsOptions = {
+  origin: "https://smartbrain-devinmcdaniel-399f2624a5c3.herokuapp.com/",
+  optionsSuccessStatus: 200,
+};
+
 const db = knex({
   client: "pg",
   connection: {
@@ -18,7 +23,7 @@ const db = knex({
 });
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {
   res.json("Success");

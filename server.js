@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const helmet = require("helmet");
 const bcrypt = require("bcrypt-nodejs");
 const cors = require("cors");
 const knex = require("knex");
@@ -23,6 +24,7 @@ const db = knex({
 });
 
 app.use(express.json());
+app.use(helmet());
 app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {

@@ -1,4 +1,3 @@
-require("dotenv").config();
 const { ClarifaiStub, grpc } = require("clarifai-nodejs-grpc");
 const express = require("express");
 const cors = require("cors");

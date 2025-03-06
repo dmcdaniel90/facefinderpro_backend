@@ -11,16 +11,23 @@ const profile = require("./controllers/profile");
 const image = require("./controllers/image");
 
 const corsOptions = {
-  origin: "https://smartbrain-devinmcdaniel-399f2624a5c3.herokuapp.com",
+  origin: "https://facefinderpro.netlify.app",
   optionsSuccessStatus: 200,
 };
 
 const db = knex({
   client: "pg",
   connection: {
-    connectionString: process.env.DATABASE_URL,
+    host: process.env.SUPABASE_DB_HOST,
+    user: process.env.SUPABASE_DB_USER,
+    password: process.env.SUPABASE_DB_PASSWORD,
+    database: process.env.SUPABASE_DB_NAME,
+    port: process.env.SUPABASE_DB_PORT,
     ssl: { rejectUnauthorized: false },
   },
+  migrations: {
+    tableName: "knex_migrations",
+  }
 });
 
 app.use(express.json());

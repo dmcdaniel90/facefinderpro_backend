@@ -11,7 +11,7 @@ const profile = require("./controllers/profile");
 const image = require("./controllers/image");
 
 const corsOptions = {
-  origin: "https://facefinderpro.netlify.app",
+  origin: "*",
   optionsSuccessStatus: 200,
 };
 

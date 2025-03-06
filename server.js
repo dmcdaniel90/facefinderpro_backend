@@ -35,7 +35,7 @@ app.use(helmet());
 app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {
-  res.json("Success");
+  res.status(200).json("Success");
 });
 app.post("/signin", (req, res) => {
   signin.handleSignin(req, res, db, bcrypt);

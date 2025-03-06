@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server.js --omit=dev",
     "dev": "nodemon server.js",
     "format": "prettier --write ."
   },

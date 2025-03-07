@@ -12,13 +12,13 @@ const image = require("./controllers/image");
 
 const corsOptions = {
   origin: [
-    "http://facefinderpro-production.up.railway.app",
-    "http://facefinderpro-production.up.railway.app/register",
-    "http://facefinderpro-production.up.railway.app/signin",
-    "http://facefinderpro-production.up.railway.app/profile/:id",
-    "http://facefinderpro-production.up.railway.app/image",
-    "http://facefinderpro-production.up.railway.app/imageurl",
-    "http://facefinderpro-production.up.railway.app/",
+    "https://facefinderpro-production.up.railway.app",
+    "https://facefinderpro-production.up.railway.app/register",
+    "https://facefinderpro-production.up.railway.app/signin",
+    "https://facefinderpro-production.up.railway.app/profile/:id",
+    "https://facefinderpro-production.up.railway.app/image",
+    "https://facefinderpro-production.up.railway.app/imageurl",
+    "https://facefinderpro-production.up.railway.app/",
   ],
   optionsSuccessStatus: 200,
   preflightContinue: true,

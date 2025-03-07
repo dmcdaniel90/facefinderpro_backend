@@ -20,8 +20,6 @@ const corsOptions = {
     "https://facefinderpro-production.up.railway.app/imageurl",
     "https://facefinderpro-production.up.railway.app/",
   ],
-  optionsSuccessStatus: 200,
-  preflightContinue: true,
 };
 
 const db = knex({

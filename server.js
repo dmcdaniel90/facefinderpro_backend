@@ -13,6 +13,7 @@ const image = require("./controllers/image");
 const corsOptions = {
   origin: "*",
   optionsSuccessStatus: 200,
+  preflightContinue: true,
 };
 
 const db = knex({
@@ -54,5 +55,5 @@ app.post("/imageurl", (req, res) => {
 });
 
 app.listen((port = process.env.PORT || 3000), () => {
-  console.log(`App running on port ${port}`);
+  console.log(`Success. App running on port ${port}`);
 });

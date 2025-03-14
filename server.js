@@ -11,15 +11,7 @@ const profile = require("./controllers/profile");
 const image = require("./controllers/image");
 
 const corsOptions = {
-  origin: [
-    "https://facefinderpro-production.up.railway.app",
-    "https://facefinderpro-production.up.railway.app/register",
-    "https://facefinderpro-production.up.railway.app/signin",
-    "https://facefinderpro-production.up.railway.app/profile/:id",
-    "https://facefinderpro-production.up.railway.app/image",
-    "https://facefinderpro-production.up.railway.app/imageurl",
-    "https://facefinderpro-production.up.railway.app/",
-  ],
+  "Access-Control-Allow-Origin": "*",
 };
 
 const db = knex({
@@ -32,9 +24,6 @@ const db = knex({
     port: process.env.PGPORT,
     ssl: { rejectUnauthorized: false },
   },
-  migrations: {
-    tableName: "knex_migrations",
-  }
 });
 
 app.use(express.json());

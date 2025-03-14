@@ -10,10 +10,6 @@ const signin = require("./controllers/signin");
 const profile = require("./controllers/profile");
 const image = require("./controllers/image");
 
-const corsOptions = {
-  "Access-Control-Allow-Origin": "*",
-};
-
 const db = knex({
   client: "pg",
   connection: {
@@ -26,13 +22,18 @@ const db = knex({
   },
 });
 
+const corsOptions = {
+  "Access-Control-Allow-Origin": "*",
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(helmet());
-app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {
-  res.status(200).json("Success");
+  res.status(200).send(db.users);
 });
+
 app.post("/signin", (req, res) => {
   signin.handleSignin(req, res, db, bcrypt);
 });

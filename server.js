@@ -16,7 +16,7 @@ const db = knex({
     host: process.env.PGHOST,
     user: process.env.PGUSER,
     password: process.env.PGPASSWORD,
-    database: process.env.DATABASE_PUBLIC_URL,
+    database: process.env.DATABASE_URL,
     port: process.env.PGPORT,
     ssl: { rejectUnauthorized: false },
   },

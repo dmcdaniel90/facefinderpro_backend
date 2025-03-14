@@ -25,11 +25,11 @@ const corsOptions = {
 const db = knex({
   client: "pg",
   connection: {
-    host: process.env.SUPABASE_DB_HOST,
-    user: process.env.SUPABASE_DB_USER,
-    password: process.env.SUPABASE_DB_PASSWORD,
-    database: process.env.SUPABASE_DB_NAME,
-    port: process.env.SUPABASE_DB_PORT,
+    host: process.env.PGHOST,
+    user: process.env.PGUSER,
+    password: process.env.PGPASSWORD,
+    database: process.env.DATABASE_URL,
+    port: process.env.PGPORT,
     ssl: { rejectUnauthorized: false },
   },
   migrations: {

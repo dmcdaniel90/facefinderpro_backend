@@ -4,10 +4,14 @@ const cors = require("cors");
 const app = express();
 const stub = ClarifaiStub.grpc();
 
-app.use(cors());
+const corsOptions = {
+  "Access-Control-Allow-Origin": "*",
+};
+
+app.use(cors(corsOptions));
 
 const handleApiCall = (req, res) => {
-  const PAT = process.env.API_CLARIFAI;
+  const PAT = process.env.VITE_API_CLARIFAI;
   const USER_ID = "dmcdaniel9";
   const APP_ID = "smartbrain";
   const MODEL_ID = "face-detection";

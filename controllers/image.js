@@ -11,7 +11,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 const handleApiCall = (req, res) => {
-  const PAT = process.env.VITE_API_CLARIFAI;
+  const PAT = process.env.API_CLARIFAI;
   const USER_ID = "dmcdaniel9";
   const APP_ID = "smartbrain";
   const MODEL_ID = "face-detection";
@@ -36,7 +36,7 @@ const handleApiCall = (req, res) => {
       if (err) {
         throw new Error(err);
       }
-
+      
       const output = response.outputs[0].data.regions.map((region) => {
         return region.region_info.bounding_box;
       });

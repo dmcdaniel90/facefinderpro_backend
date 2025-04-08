@@ -4,11 +4,16 @@ const helmet = require("helmet");
 const bcrypt = require("bcrypt-nodejs");
 const cors = require("cors");
 const knex = require("knex");
+require('dotenv').config()
 
 const register = require("./controllers/register");
 const signin = require("./controllers/signin");
 const profile = require("./controllers/profile");
 const image = require("./controllers/image");
+
+const sslOption = process.env.NODE_ENV === 'production'
+  ? { rejectUnauthorized: false }
+  : false;
 
 const db = knex({
   client: "pg",
@@ -18,15 +23,16 @@ const db = knex({
     password: process.env.PG_PASSWORD,
     database: process.env.PG_DATABASE,
     port: process.env.PG_PORT,
-    ssl: { rejectUnauthorized: false },
+    ssl: sslOption,
   },
 });
 
 const corsOptions = {
-  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Origin": process.env.FRONTEND_URL,
 };
 
 app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(helmet());
 
